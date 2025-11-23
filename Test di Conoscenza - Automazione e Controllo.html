@@ -1,89 +1,92 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test di Conoscenza - Automazione e Controllo</title>
-  <style>
-      body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 20px; }
-      h1 { text-align: center; }
-      .question { margin-bottom: 20px; }
-      .result { margin-top: 20px; font-weight: bold; }
-      button { padding: 10px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-      button:hover { background-color: #45a049; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test di Elettronica e PLC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-  <h1>Test di Conoscenza - Automazione e Controllo</h1>
 
-  <form id="quizForm">
-      <div class="question">
-          <p>1. Quale dei seguenti componenti è tipicamente utilizzato in un sistema di controllo industriale?</p>
-          <label><input type="radio" name="q1" value="A"> A) Sensore</label><br>
-          <label><input type="radio" name="q1" value="B"> B) Computer</label><br>
-          <label><input type="radio" name="q1" value="C"> C) Smartphone</label><br>
-          <label><input type="radio" name="q1" value="D"> D) Monitor</label>
-      </div>
+    <h1>Test di Elettronica e PLC</h1>
+    
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Qual è la legge di Ohm?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> A) V = I · R</label>
+                <label><input type="radio" name="q1" value="B"> B) P = V · I</label>
+                <label><input type="radio" name="q1" value="C"> C) R = V/I</label>
+                <label><input type="radio" name="q1" value="D"> D) Tutte le precedenti</label>
+            </div>
+        </div>
+        
+        <div class="question">
+            <p>2. Quale componente elettronico è utilizzato per limitare la corrente in un circuito?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> A) Resistenza</label>
+                <label><input type="radio" name="q2" value="B"> B) Condensatore</label>
+                <label><input type="radio" name="q2" value="C"> C) Induttore</label>
+                <label><input type="radio" name="q2" value="D"> D) Diodo</label>
+            </div>
+        </div>
 
-      <div class="question">
-          <p>2. Qual è la funzione principale di un PLC (Programmable Logic Controller)?</p>
-          <label><input type="radio" name="q2" value="A"> A) Monitorare la temperatura</label><br>
-          <label><input type="radio" name="q2" value="B"> B) Eseguire programmi di controllo logico</label><br>
-          <label><input type="radio" name="q2" value="C"> C) Trasmettere dati via internet</label><br>
-          <label><input type="radio" name="q2" value="D"> D) Generare energia</label>
-      </div>
+        <!-- Aggiungi qui il resto delle domande in modo simile -->
 
-      <div class="question">
-          <p>3. In un diagramma di flusso, quale simbolo rappresenta un processo?</p>
-          <label><input type="radio" name="q3" value="A"> A) Cerchio</label><br>
-          <label><input type="radio" name="q3" value="B"> B) Rettangolo</label><br>
-          <label><input type="radio" name="q3" value="C"> C) Rombo</label><br>
-          <label><input type="radio" name="q3" value="D"> D) Freccia</label>
-      </div>
+        <div class="question">
+            <p>20. Qual è la funzione principale di un PLC?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="A"> A) Eseguire calcoli complessi</label>
+                <label><input type="radio" name="q20" value="B"> B) Controllare processi industriali</label>
+                <label><input type="radio" name="q20" value="C"> C) Memorizzare dati</label>
+                <label><input type="radio" name="q20" value="D"> D) Amplificare segnali</label>
+            </div>
+        </div>
 
-      <div class="question">
-          <p>4. Quale dei seguenti dispositivi è utilizzato per misurare la temperatura in un sistema di controllo?</p>
-          <label><input type="radio" name="q4" value="A"> A) Attuatore</label><br>
-          <label><input type="radio" name="q4" value="B"> B) Sensore di temperatura</label><br>
-          <label><input type="radio" name="q4" value="C"> C) Controllore</label><br>
-          <label><input type="radio" name="q4" value="D"> D) Interruttore</label>
-      </div>
+        <button type="submit">Invia Risposte</button>
+    </form>
 
-      <div class="question">
-          <p>5. Qual è il principale vantaggio dell'automazione industriale?</p>
-          <label><input type="radio" name="q5" value="A"> A) Maggiore complessità</label><br>
-          <label><input type="radio" name="q5" value="B"> B) Riduzione dei costi di produzione</label><br>
-          <label><input type="radio" name="q5" value="C"> C) Aumento della manodopera</label><br>
-          <label><input type="radio" name="q5" value="D"> D) Maggiore errore umano</label>
-      </div>
-
-      <button type="button" onclick="checkAnswers()">Invia Risposte</button>
-  </form>
-
-  <div class="result" id="result"></div>
-
-  <script>
-      function checkAnswers() {
-          const answers = {
-              q1: 'A',
-              q2: 'B',
-              q3: 'B',
-              q4: 'B',
-              q5: 'B'
-          };
-          let score = 0;
-          const form = document.forms['quizForm'];
-
-          for (let question in answers) {
-              const userAnswer = form[question].value;
-              if (userAnswer === answers[question]) {
-                  score++;
-              }
-          }
-
-          const totalQuestions = Object.keys(answers).length;
-          document.getElementById('result').innerText = `Hai risposto correttamente a ${score} su ${totalQuestions} domande.`;
-      }
-  </script>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Le tue risposte sono state inviate! (Funzionalità non implementata)');
+        });
+    </script>
 </body>
 </html>
