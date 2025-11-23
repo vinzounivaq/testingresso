@@ -45,6 +45,7 @@
             background-color: #e9ecef;
             padding: 15px;
             border-radius: 5px;
+            display: none; /* Nascondi le risposte inizialmente */
         }
     </style>
 </head>
@@ -256,7 +257,7 @@
         <button type="submit">Invia Risposte</button>
     </form>
 
-    <div class="answers">
+    <div class="answers" id="answers">
         <h2>Risposte Corrette</h2>
         <p>1. D) Tutte le precedenti</p>
         <p>2. A) Resistenza</p>
@@ -283,7 +284,7 @@
     <script>
         document.getElementById('quizForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            alert('Le tue risposte sono state inviate! (Funzionalità non implementata)');
+            document.getElementById('answers').style.display = 'block'; // Mostra le risposte corrette
         });
     </script>
 </body>
