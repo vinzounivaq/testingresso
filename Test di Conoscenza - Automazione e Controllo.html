@@ -281,10 +281,47 @@
         <p>20. B) Controllare processi industriali</p>
     </div>
 
+    <div id="result" style="display:none; margin-top: 20px;">
+        <h2>Risultato</h2>
+        <p id="score"></p>
+    </div>
+
     <script>
+        const correctAnswers = {
+            q1: 'D',
+            q2: 'A',
+            q3: 'B',
+            q4: 'B',
+            q5: 'B',
+            q6: 'D',
+            q7: 'B',
+            q8: 'B',
+            q9: 'B',
+            q10: 'D',
+            q11: 'C',
+            q12: 'B',
+            q13: 'B',
+            q14: 'C',
+            q15: 'A',
+            q16: 'A',
+            q17: 'B',
+            q18: 'B',
+            q19: 'D',
+            q20: 'B'
+        };
+
         document.getElementById('quizForm').addEventListener('submit', function(event) {
             event.preventDefault();
+            let score = 0;
+            for (let question in correctAnswers) {
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
             document.getElementById('answers').style.display = 'block'; // Mostra le risposte corrette
+            document.getElementById('score').innerText = `Hai risposto correttamente a ${score} domande su 20.`;
+            document.getElementById('result').style.display = 'block'; // Mostra il risultato
         });
     </script>
 </body>
