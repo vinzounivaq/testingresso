@@ -47,6 +47,16 @@
             border-radius: 5px;
             display: none; /* Nascondi le risposte inizialmente */
         }
+        .correct {
+            background-color: #d4edda; /* Verde chiaro per le risposte corrette */
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .incorrect {
+            background-color: #f8d7da; /* Rosso chiaro per le risposte sbagliate */
+            padding: 5px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -259,26 +269,7 @@
 
     <div class="answers" id="answers">
         <h2>Risposte Corrette</h2>
-        <p>1. D) Tutte le precedenti</p>
-        <p>2. A) Resistenza</p>
-        <p>3. B) Un dispositivo che permette il passaggio della corrente solo in una direzione</p>
-        <p>4. B) Un interruttore elettronico</p>
-        <p>5. B) Immagazzinare energia elettrica</p>
-        <p>6. D) Tutte le precedenti</p>
-        <p>7. B) Controllare circuiti ad alta potenza con segnali a bassa potenza</p>
-        <p>8. B) Corrente alternata</p>
-        <p>9. B) Il PLC è progettato per applicazioni industriali</p>
-        <p>10. D) Tutti i precedenti</p>
-        <p>11. C) Ohm</p>
-        <p>12. B) Esegue operazioni logiche e di controllo</p>
-        <p>13. B) Modificare il livello di tensione</p>
-        <p>14. C) Un segnale di ingresso</p>
-        <p>15. A) 50 Hz</p>
-        <p>16. A) Human Machine Interface</p>
-        <p>17. B) ADC (Analog to Digital Converter)</p>
-        <p>18. B) Controlla il tempo di attivazione di un'uscita</p>
-        <p>19. D) Tutte le precedenti</p>
-        <p>20. B) Controllare processi industriali</p>
+        <div id="responseList"></div>
     </div>
 
     <div id="result" style="display:none; margin-top: 20px;">
@@ -313,12 +304,25 @@
         document.getElementById('quizForm').addEventListener('submit', function(event) {
             event.preventDefault();
             let score = 0;
+            let responseList = '';
+
             for (let question in correctAnswers) {
                 const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
-                if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
-                    score++;
+                const correctAnswer = correctAnswers[question];
+
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === correctAnswer) {
+                        score++;
+                        responseList += `<p class="correct">Domanda ${question.slice(1)}: Risposta corretta - ${correctAnswer}</p>`;
+                    } else {
+                        responseList += `<p class="incorrect">Domanda ${question.slice(1)}: Risposta sbagliata - Hai scelto: ${selectedAnswer.value}, Risposta corretta: ${correctAnswer}</p>`;
+                    }
+                } else {
+                    responseList += `<p class="incorrect">Domanda ${question.slice(1)}: Non risposto - Risposta corretta: ${correctAnswer}</p>`;
                 }
             }
+
+            document.getElementById('responseList').innerHTML = responseList;
             document.getElementById('answers').style.display = 'block'; // Mostra le risposte corrette
             document.getElementById('score').innerText = `Hai risposto correttamente a ${score} domande su 20.`;
             document.getElementById('result').style.display = 'block'; // Mostra il risultato
